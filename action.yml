@@ -1,4 +1,4 @@
-name: Install EB CLI
+name: Install EB CLI - Updated
 description: Installs the Elastic Beanstalk CLI to the GitHub Actions runner
 inputs:
   version:
