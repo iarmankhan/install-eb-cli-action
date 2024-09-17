@@ -14,7 +14,7 @@ steps:
   with:
     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-- uses: sparkplug-app/install-eb-cli-action
+- uses: iarmankhan/install-eb-cli-action
 - run: eb init <ENVIRONMENT_NAME>
 - run: eb deploy <APPLICATION_NAME>
 ```
