@@ -11,12 +11,16 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         repository: 'aws/aws-elastic-beanstalk-cli-setup'
         path: 'aws-elastic-beanstalk-cli-setup'
-        branch: 'master'
-    - uses: actions/setup-python@v5
+        # `ref`, not `branch` — checkout has no `branch` input, so it warned
+        # "Unexpected input(s) 'branch'" on every run and silently fell back to
+        # the repository's default branch. That default happens to be master,
+        # so this pins what was already happening, minus the warning.
+        ref: 'master'
+    - uses: actions/setup-python@v6
       with:
         python-version: ${{ inputs.python-version }}
     - run: pipx install virtualenv
